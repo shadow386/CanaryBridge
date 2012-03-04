@@ -38,5 +38,35 @@ public class World {
 	public Type getType() {
 		return Type.NORMAL; // TODO
 	}
+
+	public int getBlockData(int x, int y, int z) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	public int getBlockIdAt(int x, int y, int z) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	public Block getBlockAt(int i, int j, int k) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public boolean isBlockPowered(Block block) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	public boolean isBlockIndirectlyPowered(Block block) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	public void setBlock(Block block) {
+		// TODO Auto-generated method stub
+		
+	}
 	
 }

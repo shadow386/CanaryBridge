@@ -1,4 +1,3 @@
-import org.spout.server.ConsoleManager;
 import org.spout.server.SpoutServer;
 
 
