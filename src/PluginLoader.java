@@ -6,7 +6,7 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 
-import me.steveice10.hSpout.hSpout;
+import me.steveice10.canarybridge.CanaryBridge;
 
 import org.spout.api.Spout;
 
@@ -412,8 +412,8 @@ public class PluginLoader {
 		if (this.loaded)
 			return;
 
-		Spout.getGame().getLogger().info("[hSpout] Loading plugins...");
-		String[] plugins = hSpout.getPlugins().split(",");
+		Spout.getGame().getLogger().info("[CanaryBridge] Loading plugins...");
+		String[] plugins = CanaryBridge.getPlugins().split(",");
 
 		for (String plugin : plugins) {
 			if (plugin.equals(""))
@@ -422,7 +422,7 @@ public class PluginLoader {
 			loadPlugin(plugin);
 		}
 
-		Spout.getGame().getLogger().info("[hSpout] All plugins loaded!");
+		Spout.getGame().getLogger().info("[CanaryBridge] All plugins loaded!");
 		this.loaded = true;
 	}
 	
@@ -430,8 +430,8 @@ public class PluginLoader {
     public void loadPreloadPlugins() {
         if (loadedpreload)
             return;
-		Spout.getGame().getLogger().info("[hSpout] Loading preload plugins...");
-        String[] plugins = hSpout.getPreloadPlugins().split(",");
+		Spout.getGame().getLogger().info("[CanaryBridge] Loading preload plugins...");
+        String[] plugins = CanaryBridge.getPreloadPlugins().split(",");
         
         for (String plugin : plugins) {
             if (plugin.equals("")) continue;
@@ -439,7 +439,7 @@ public class PluginLoader {
             loadPlugin(plugin.trim());
         }
         
-		Spout.getGame().getLogger().info("[hSpout] All preload plugins loaded!");
+		Spout.getGame().getLogger().info("[CanaryBridge] All preload plugins loaded!");
         loadedpreload = true;
     }
 
@@ -478,14 +478,14 @@ public class PluginLoader {
 
 	public boolean load(String name) {
 		try {
-			File file = new File(hSpout.getPluginFolder(), name + ".jar");
+			File file = new File(CanaryBridge.getPluginFolder(), name + ".jar");
 
 			if (!file.exists()) {
 				Spout.getGame()
 						.getLogger()
-						.severe("[hSpout] Could not find plugin "
+						.severe("[CanaryBridge] Could not find plugin "
 								+ name
-								+ ". Please insure it is in the directory \"<server directory>/plugins/hSpout/plugins\"");
+								+ ". Please insure it is in the directory \"<server directory>/plugins/CanaryBridge/plugins\"");
 				return false;
 			}
 
@@ -509,7 +509,7 @@ public class PluginLoader {
 			}
 		} catch (Throwable thr) {
 			Spout.getGame().getLogger()
-					.severe("[hSpout] Failed to load plugin " + name + "!");
+					.severe("[CanaryBridge] Failed to load plugin " + name + "!");
 			thr.printStackTrace();
 			return false;
 		}
@@ -556,7 +556,7 @@ public class PluginLoader {
 				plugin.enable();
 			}
 		} else {
-			File file = new File(hSpout.getPluginFolder(), name + ".jar");
+			File file = new File(CanaryBridge.getPluginFolder(), name + ".jar");
 
 			if (file.exists())
 				return this.loadPlugin(name);
@@ -900,7 +900,7 @@ public class PluginLoader {
 						: listener.getClass().toString();
 				Spout.getGame()
 						.getLogger()
-						.severe("[hSpout] Error calling hook \""
+						.severe("[CanaryBridge] Error calling hook \""
 								+ hook.toString() + "\" in listener \""
 								+ listenerName + "\".");
 				e.printStackTrace();
@@ -909,7 +909,7 @@ public class PluginLoader {
 						: listener.getClass().toString();
 				Spout.getGame()
 						.getLogger()
-						.severe("[hSpout] Throwable while calling hook "
+						.severe("[CanaryBridge] Throwable while calling hook "
 								+ hook.toString() + " for listener "
 								+ listenerName + ". (Is it up to date?)");
 				thr.printStackTrace();
@@ -930,7 +930,7 @@ public class PluginLoader {
 					Spout.getGame()
 							.getLogger()
 							.warning(
-									"[hSpout] Could not find custom listener "
+									"[CanaryBridge] Could not find custom listener "
 											+ name + ".");
 					return false;
 				}
@@ -940,7 +940,7 @@ public class PluginLoader {
 				if (message != null) {
 					Spout.getGame()
 							.getLogger()
-							.severe("[hSpout] Custom Listener message from listener "
+							.severe("[CanaryBridge] Custom Listener message from listener "
 									+ name + ": " + message);
 					return false;
 				}
@@ -949,7 +949,7 @@ public class PluginLoader {
 			} catch (Exception e) {
 				Spout.getGame()
 						.getLogger()
-						.severe("[hSpout] Error calling custom plugin function!");
+						.severe("[CanaryBridge] Error calling custom plugin function!");
 				e.printStackTrace();
 			}
 		}
@@ -990,7 +990,7 @@ public class PluginLoader {
 				Spout.getGame()
 						.getLogger()
 						.warning(
-								"[hSpout] Listener by the name "
+								"[CanaryBridge] Listener by the name "
 										+ listener.getName()
 										+ " already exists! Replacing...");
 			}
@@ -999,7 +999,7 @@ public class PluginLoader {
 
 			Spout.getGame()
 					.getLogger()
-					.info("[hSpout] Custom hook registered: "
+					.info("[CanaryBridge] Custom hook registered: "
 							+ listener.getName() + ".");
 		}
 	}

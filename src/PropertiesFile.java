@@ -20,7 +20,7 @@ public final class PropertiesFile {
 	 */
 	public PropertiesFile(String file) {
 		if(file.equals("server.properties")) {
-			Spout.getGame().getLogger().warning("[hSpout] Warning! Attempted access of server.properties!");
+			Spout.getGame().getLogger().warning("[CanaryBridge] Warning! Attempted access of server.properties!");
 		}
 		
 			this.propFile = new File(file);
@@ -29,7 +29,7 @@ public final class PropertiesFile {
 				try {
 					this.propFile.createNewFile();
 				} catch (IOException e) {
-					Spout.getGame().getLogger().info("[hSpout] Failed to create properties for file + " + file + "!");
+					Spout.getGame().getLogger().info("[CanaryBridge] Failed to create properties for file + " + file + "!");
 					e.printStackTrace();
 					return;
 				}
@@ -50,14 +50,14 @@ public final class PropertiesFile {
 			stream = new FileInputStream(this.propFile);
 			props.load(stream);
 		} catch(IOException ioe) {
-			Spout.getGame().getLogger().info("[hSpout] Failed to load properties for file + " + this.propFile.getName() + "!");
+			Spout.getGame().getLogger().info("[CanaryBridge] Failed to load properties for file + " + this.propFile.getName() + "!");
 			ioe.printStackTrace();
 		} finally {
 			if(stream != null) {
 				try {
 					stream.close();
 				} catch (IOException e) {
-					Spout.getGame().getLogger().info("[hSpout] Failed to close stream for file + " + this.propFile.getName() + "!");
+					Spout.getGame().getLogger().info("[CanaryBridge] Failed to close stream for file + " + this.propFile.getName() + "!");
 					e.printStackTrace();
 				}
 			}
@@ -74,14 +74,14 @@ public final class PropertiesFile {
             stream = new FileOutputStream(this.propFile);
             props.store(stream, null);
         } catch (IOException ioe) {
-			Spout.getGame().getLogger().info("[hSpout] Failed to save properties for file + " + this.propFile.getName() + "!");
+			Spout.getGame().getLogger().info("[CanaryBridge] Failed to save properties for file + " + this.propFile.getName() + "!");
 			ioe.printStackTrace();
         } finally {
 			if(stream != null) {
 				try {
 					stream.close();
 				} catch (IOException e) {
-					Spout.getGame().getLogger().info("[hSpout] Failed to close stream for file + " + this.propFile.getName() + "!");
+					Spout.getGame().getLogger().info("[CanaryBridge] Failed to close stream for file + " + this.propFile.getName() + "!");
 					e.printStackTrace();
 				}
 			}
