@@ -44,7 +44,7 @@ public class Chunk {
         if (isLoaded()) {
             return this.getWorld().setBlockAt(id, x | (getX() << 4), y, x | (getZ() << 4));
         } else {
-            return false; // TODO: Set block at - chunk.
+            return this.spoutChunk.setBlockId(x, y, z, (short) id, null);
         }
     }
 	
@@ -60,7 +60,7 @@ public class Chunk {
         if (isLoaded()) {
             this.getWorld().setBlockData(x | (getX() << 4), y, x | (getZ() << 4), data);
         } else {
-        	// TODO: set block at - chunk
+            this.spoutChunk.setBlockData(x, y, z, (short) data, null);
         }
     }
 	

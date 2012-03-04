@@ -1,6 +1,8 @@
 import java.util.HashMap;
 import java.util.Map;
 
+import org.spout.api.basic.blocks.SpoutBlock;
+
 public class Block {
 
 	/**
@@ -195,6 +197,16 @@ public class Block {
 	private World world;
 	
 	public Block() {
+	}
+	
+	public Block(org.spout.api.geo.cuboid.Block block) {
+		this.type = block.getBlockId();
+		this.x = block.getX();
+		this.y = block.getY();
+		this.z = block.getZ();
+		this.blockType = Type.fromId(this.type);
+		this.data = block.getWorld().getBlockData(x, y, z);
+		this.world = new World(block.getWorld()); // TODO: Do this better.
 	}
 	
 	public Block(int type) {
