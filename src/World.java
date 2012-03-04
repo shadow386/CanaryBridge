@@ -35,6 +35,12 @@ public class World {
 
     }
 	
+    private org.spout.api.geo.World spoutWorld;
+    
+	public World(org.spout.api.geo.World spoutWorld) {
+		this.spoutWorld = spoutWorld;
+	}
+
 	public Type getType() {
 		return Type.NORMAL; // TODO
 	}
@@ -67,6 +73,20 @@ public class World {
 	public void setBlock(Block block) {
 		// TODO Auto-generated method stub
 		
+	}
+
+	public boolean setBlockAt(int id, int i, int y, int j) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	public void setBlockData(int i, int y, int j, int data) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public org.spout.api.geo.World getSpoutWorld() {
+		return this.spoutWorld;
 	}
 	
 }
